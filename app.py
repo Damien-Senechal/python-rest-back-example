@@ -1,6 +1,7 @@
 from flask import Flask
 from models.database import db
 from routes.user_routes import user_routes
+from routes.stock_routes import stock_routes
 
 def create_app():
     app = Flask(__name__)
@@ -13,6 +14,7 @@ def create_app():
 
     # Register blueprints
     app.register_blueprint(user_routes, url_prefix="/api")
+    app.register_blueprint(stock_routes, url_prefix="/api")
 
     return app
 
