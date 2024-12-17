@@ -14,7 +14,7 @@ Je veux créer une facture avec les informations du client,
 Afin de pouvoir suivre les paiements dus.
 Critères d'acceptation :
 
-Une facture doit contenir : client_name, amount, issue_date, status.
+Une facture doit contenir : nom_client, montant, date, status.
 Le système valide les champs obligatoires.
 Si les champs requis sont manquants, une erreur 400 est renvoyée.
 
