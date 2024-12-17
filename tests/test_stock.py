@@ -44,5 +44,25 @@ class StockTestCase(unittest.TestCase):
         data = json.loads(response.data)
         self.assertEqual(len(data), 0)
 
+        
+    def test_get_stock(self):
+        with self.app.app_context():
+            stock = Stock(name="Crayon", quantity=100, price=0.99)
+            db.session.add(stock)
+            db.session.commit()
+
+            stock_id = stock.id
+
+        response = self.client.get(f"/api/stocks/{stock_id}")
+        self.assertEqual(response.status_code, 200)
+        data = json.loads(response.data)
+        self.assertEqual(data["name"], "Crayon")
+        self.assertEqual(data["quantity"], 100)
+        self.assertEqual(data["price"], 0.99)
+
+    def test_get_nonexistent_stock(self):
+        response = self.client.get("/api/stocks/999")
+        self.assertEqual(response.status_code, 404)
+
 if __name__ == "__main__":
     unittest.main()
