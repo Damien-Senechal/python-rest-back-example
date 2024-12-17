@@ -17,3 +17,59 @@ Critères d'acceptation :
 Une facture doit contenir : client_name, amount, issue_date, status.
 Le système valide les champs obligatoires.
 Si les champs requis sont manquants, une erreur 400 est renvoyée.
+
+2. Gestion des Stocks
+
+Méthode	            Route	          Description
+GET                  invoices	       Récupérer tous les objets
+GET	                 invoices/<id>	   Récupérer un objet par ID
+POST	             invoices	       Créer un nouvel objet
+PUT	                 invoices/<id>	   Mettre à jour un objet
+DELETE	             invoices/<id>	   Supprimer un objet
+
+User Story 1: Consulter tous les articles
+En tant que gestionnaire de stock
+Je veux voir la liste de tous les articles en stock
+Afin de suivre les niveaux d'inventaire
+Critères d'acceptation:
+- Le système récupère la liste complète des articles
+- Chaque article affiche nom, quantité et prix
+- Retourne une liste vide si aucun article
+
+User Story 2: Consulter un article spécifique
+En tant que gestionnaire de stock
+Je veux voir les détails d'un article précis
+Afin de vérifier son état actuel
+Critères d'acceptation:
+- Le système récupère les détails via l'ID
+- Affiche nom, quantité, prix
+- Erreur 404 si article non trouvé
+
+User Story 3: Ajouter un nouvel article
+En tant que gestionnaire de stock
+Je veux ajouter un nouvel article
+Afin de suivre les nouveaux produits
+Critères d'acceptation:
+- Champs requis: nom, quantité, prix
+- Le système sauvegarde l'article
+- Retourne les détails du nouvel article
+- Erreur 400 si données invalides
+
+User Story 4: Modifier un article
+En tant que gestionnaire de stock
+Je veux mettre à jour les informations d'un article
+Afin de corriger ou ajuster l'inventaire
+Critères d'acceptation:
+- Mise à jour via l'ID fourni
+- Peut modifier nom, quantité, prix
+- Erreur 404 si article non trouvé
+- Retourne les détails mis à jour
+
+User Story 5: Supprimer un article
+En tant que gestionnaire de stock
+Je veux retirer des articles du stock
+Afin de maintenir un inventaire précis
+Critères d'acceptation:
+- Suppression via l'ID
+- Erreur 404 si non trouvé
+- Message de confirmation après suppression
