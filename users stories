@@ -1,0 +1,19 @@
+1. Service de Gestion des Factures
+Service de Gestion des Factures : CRUD complet pour gérer les factures.
+
+Méthode	            Route	          Description
+GET                invoices	        Récupérer toutes les factures
+GET	               invoices/<id>	  Récupérer une facture par ID
+POST	             invoices	        Créer une nouvelle facture
+PUT	               invoices/<id>	  Mettre à jour une facture
+DELETE	           invoices/<id>	  Supprimer une facture par ID
+
+User Story : Créer une Facture
+En tant qu'administrateur,
+Je veux créer une facture avec les informations du client,
+Afin de pouvoir suivre les paiements dus.
+Critères d'acceptation :
+
+Une facture doit contenir : client_name, amount, issue_date, status.
+Le système valide les champs obligatoires.
+Si les champs requis sont manquants, une erreur 400 est renvoyée.
