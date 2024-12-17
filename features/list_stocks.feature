@@ -19,3 +19,23 @@ Feature: Consulter tous les articles
         When je fais une requête GET "/api/stocks"
         Then le code de statut est 200
         And la réponse est une liste vide
+
+Feature: Consulter un article spécifique
+    En tant que gestionnaire de stock
+    Je veux voir les details d'un article precis
+    Afin de verifier son etat actuel
+
+    Scenario: Consulter un article existant
+        Given un article exsite avec:
+            | name   | quantity | price |
+            | Crayon | 100      | 0.99  |
+        When je fais une requete GET "/api/stocks/1"
+        Then le code de statut est 200
+        And la reponse contient les details:
+            | name     | Crayon |
+            | quantity | 100    |
+            | price    | 0.99   |
+
+    Scenario: Consulter un article inexistant
+        When je fais une requete GET "/api/stocks/999"
+        Then le code de statut est 404
