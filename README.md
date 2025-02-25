@@ -38,7 +38,7 @@ Start the Flask server:
 python app.py
 ```
 
-The server will run at `http://127.0.0.1:5000`.
+The server will run at `http://127.0.0.1:5000` .
 
 ### 4. Run the Unit Tests
 
@@ -100,3 +100,38 @@ After running the application, here’s what the responses might look like:
     "email": "john@example.com"
   }
   ```
+
+
+### Create a Stock
+- **POST** `/api/stocks`
+- Request Body:
+```json
+ {
+	  "name": "Riz",
+    "quantity": 5,
+    "price": 1
+  }
+```
+
+### Get All Stock
+- **GET** `/api/stocks`
+
+### Get a User by ID
+- **GET** `/api/stocks/<id>`
+
+### Update a Stock
+- **PUT** `/api/stocks/<id>`
+- Request Body:
+```json
+  {
+    "name": "Amande",
+      "quantity": 3,
+      "price": 9
+  }
+```
+
+### Delete a Stock
+- **DELETE** `/api/stocks/<id>`
+
+---
+
